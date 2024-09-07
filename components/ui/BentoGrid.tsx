@@ -3,46 +3,41 @@
 import {useState} from "react";
 import {IoCopyOutline} from "react-icons/io5";
 
-// Also install this npm i --save-dev @types/react-lottie
-// import Lottie from "react-lottie";
+import Lottie from "react-lottie";
 
 import {cn} from "@/lib/utils";
 
 
 import {BackgroundGradientAnimation} from "@/components/ui/GradientBg";
 import GridGlobe from "./GridGlobe";
-// import animationData from "@/data/confetti.json";
+import animationData from "@/data/confetti.json";
 import MagicButton from '@/components/ui/MagicButton';
 
 export const BentoGrid = ({
-                              className,
-                              children,
-                          }: {
+    className,
+    children,
+}: {
     className?: string;
     children?: React.ReactNode;
 }) => {
     return (
-        <div
-            className={cn(
-                "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto",
-                className
-            )}
-        >
+        <div className={cn(
+            "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto", className)}>
             {children}
         </div>
     );
 };
 
 export const BentoGridItem = ({
-                                  className,
-                                  id,
-                                  title,
-                                  description,
-                                  img,
-                                  imgClassName,
-                                  titleClassName,
-                                  spareImg,
-                              }: {
+    className,
+    id,
+    title,
+    description,
+    img,
+    imgClassName,
+    titleClassName,
+    spareImg,
+}: {
     className?: string;
     id: number;
     title?: string | React.ReactNode;
@@ -60,14 +55,14 @@ export const BentoGridItem = ({
     const defaultOptions = {
         loop: copied,
         autoplay: copied,
-        // animationData: animationData,
+        animationData: animationData,
         rendererSettings: {
             preserveAspectRatio: "xMidYMid slice",
         },
     };
 
     const handleCopy = () => {
-        const text = "hsu@jsmastery.pro";
+        const text = "javier.ventajas@evlabs.io";
         navigator.clipboard.writeText(text);
         setCopied(true);
     };
@@ -94,15 +89,11 @@ export const BentoGridItem = ({
                         />
                     )}
                 </div>
-                <div
-                    className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-80"
-                    } `}
-                >
+                <div className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-80"} `}>
                     {spareImg && (
                         <img
                             src={spareImg}
                             alt={spareImg}
-                            //   width={220}
                             className="object-cover object-center w-full h-full"
                         />
                     )}
@@ -120,13 +111,10 @@ export const BentoGridItem = ({
                         "group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10"
                     )}
                 >
-                    <div
-                        className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
+                    <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
                         {description}
                     </div>
-                    <div
-                        className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10`}
-                    >
+                    <div className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10`}>
                         {title}
                     </div>
 
@@ -139,10 +127,9 @@ export const BentoGridItem = ({
                                     <span
                                         key={i}
                                         className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50
-                    lg:opacity-100 rounded-lg text-center bg-[#10132E]"
-                                    >
-                    {item}
-                  </span>
+                                        lg:opacity-100 rounded-lg text-center bg-[#10132E]">
+                                        {item}
+                                    </span>
                                 ))}
                                 <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
                             </div>
@@ -152,21 +139,18 @@ export const BentoGridItem = ({
                                     <span
                                         key={i}
                                         className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50
-                    lg:opacity-100 rounded-lg text-center bg-[#10132E]"
-                                    >
-                    {item}
-                  </span>
+                                        lg:opacity-100 rounded-lg text-center bg-[#10132E]">
+                                        {item}
+                                    </span>
                                 ))}
                             </div>
                         </div>
                     )}
                     {id === 6 && (
                         <div className="mt-5 relative">
-                            <div
-                                className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
-                                }`}
-                            >
+                            <div className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"}`}>
                                 {/*<Lottie options={defaultOptions} height={200} width={400}/>*/}
+                                <Lottie options={defaultOptions} />
                             </div>
 
                             <MagicButton
